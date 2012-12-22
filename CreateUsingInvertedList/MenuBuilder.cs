@@ -11,6 +11,7 @@ namespace CreateUsingInvertedList
         {
         }
 
+        //Takes the screen list created in the Container at startup
         public MenuBuilder(IList<Screen> screens) : this ("Main Menu")
         {
             _screens = screens;

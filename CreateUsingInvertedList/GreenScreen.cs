@@ -2,7 +2,7 @@
 {
     public class GreenScreen :Screen
     {
-        public GreenScreen() : this("Green Screen")
+        public GreenScreen(GreenScreenRepo greenScreenRepo) : this("Green Screen")
         {
         }
 

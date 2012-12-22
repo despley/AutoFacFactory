@@ -3,7 +3,7 @@
     public class BlueScreen : Screen
     {
         private string _name;
-        public BlueScreen():this ("Blue Screen")
+        public BlueScreen(BlueScreenRepo blueScreenRepo):this ("Blue Screen")
         {
         }
 

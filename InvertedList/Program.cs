@@ -11,12 +11,21 @@ namespace InvertedList
     {
         static void Main(string[] args)
         {
+            //Create the builder
             var builder = new ContainerBuilder();
+            //Register the repositories. You would not implement concrete classes like this but this code shows two different repoitories and a blank constructor
+            builder.RegisterType<BlueScreenRepo>();
+            builder.RegisterType<GreenScreenRepo>();
+            //register the actual screens
             builder.RegisterType<YellowScreen>().As<Screen>();
             builder.RegisterType<BlueScreen>().As<Screen>();
             builder.RegisterType<GreenScreen>().As<Screen>();
+            //build the container
             var container = builder.Build();
+            //menu builder is the conductor here
             var menu = new MenuBuilder(container.Resolve<IEnumerable<Screen>>().ToList());
+            
+            //ALL OF THE BELOW SHOULD LIVE IN ANOTHER CLASS [CONSOLEMANAGER] AND NOT JUST BE LEFT HERE UNTESTED AND MESSY - BUT THIS ISN'T PRODUCTION CODE
             Console.WriteLine(menu.DisplayWelcomeMessage());
             var key = Console.ReadLine();
             do

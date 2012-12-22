@@ -22,8 +22,8 @@ namespace CreateUsingInvertedListTests
          {
              IList<Screen> screens = new List<Screen>();
              screens.Add(new YellowScreen());
-             screens.Add(new BlueScreen());
-             screens.Add(new GreenScreen());
+             screens.Add(new BlueScreen(new BlueScreenRepo()));
+             screens.Add(new GreenScreen(new GreenScreenRepo()));
              MenuBuilder menuBuilder = new MenuBuilder(screens);
              Assert.AreEqual("1. Build Yellow Screen\n2. Build Blue Screen\n3. Build Green Screen\n", menuBuilder.DisplayScreenItemsForSelection());
          }
@@ -33,8 +33,8 @@ namespace CreateUsingInvertedListTests
         {
             var screens = new List<Screen>();
             screens.Add(new YellowScreen());
-            screens.Add(new BlueScreen());
-            screens.Add(new GreenScreen());
+            screens.Add(new BlueScreen(new BlueScreenRepo()));
+            screens.Add(new GreenScreen(new GreenScreenRepo())); 
             MenuBuilder menuBuilder = new MenuBuilder(screens);
             Assert.AreEqual("Welcome to the colour screen picker. \n \nPlease enter you screen selection 1-3:\n", menuBuilder.DisplayWelcomeMessage());
         }
@@ -44,8 +44,8 @@ namespace CreateUsingInvertedListTests
         {
             var screens = new List<Screen>();
             screens.Add(new YellowScreen());
-            screens.Add(new BlueScreen());
-            screens.Add(new GreenScreen());
+            screens.Add(new BlueScreen(new BlueScreenRepo()));
+            screens.Add(new GreenScreen(new GreenScreenRepo()));
             MenuBuilder menuBuilder = new MenuBuilder(screens);
             var screen = menuBuilder.GetScreen(2);
             Assert.AreEqual("Hello from the Blue Screen", screen.DisplayWelcomeMessage());

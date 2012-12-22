@@ -3,3 +3,5 @@ _Resharper*
 bin/
 obj/
 *.user
+_NCrunch*
+*ncrunchsolution
